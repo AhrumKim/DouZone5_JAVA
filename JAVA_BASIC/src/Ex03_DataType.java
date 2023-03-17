@@ -171,9 +171,124 @@ public class Ex03_DataType {
          //Oracle >> + 산술만 해요, 결합연산자 || '안녕' ||'방가방가'>>
         
          
+         //자바의 타입은 불합리하다...
+         //처음 부터 타입을 정의하고 하는 것에 대한 불만
+         
+         //Tip
+         /*
+           let i;
+           i = 100; //값이 입력되면 그때 타입을 정의
+           const c;   
+          */
+     
+         
+         //java에서 특수 문자 처리하기
+         //char sing=''; 한문자 공백, 영문, 한글 등
+         //char sing ='''; //Invalid character constant
+        //이스케이프 문자 : 특정 문자 앞에 \  다음 rkqtdms epdlxj dlswjd
+         char sing='\'';
+         System.out.println(sing);
+         
+         //Quiz) 홍"길"동이라는 문자열을 출력하고 싶어요
+         String username="홍\"길\"동";
+         System.out.println(username);
+         
+         String str1 ="1000";
+         String str2= "10";
+         String result= str1 +str2; // 결합(문자열)
+         System.out.println("result: "+result);
+          
+         System.out.println("100"+100);//100100
+         System.out.println(100+"100"); //100100
+         System.out.println(100+100+"100");//200100
+         System.out.println(100+(100+"100"));//100100100
+         System.out.println(100+"100"+100);//100100100
          
          
+         //Quiz 경로 "C:\Temp" 문자열을 String 변수에 담아서 출력해 보세요.
+         
+         String path="C:\\Temp";//Invalid escape sequence (valid ones are  \b  \t  \n  \f  \r  \"  \'  \\ )
+         
+         System.out.println("path:" + path); //path : C:\Temp
+         // \t (tab), \n(new line)
+         path ="C:\\T\te\tm\tp\nhello";
+         System.out.println("path2:" + path);
+         
+        //byte : 네트워크 데이터 교화.. 파일 처리 ... 이미지 read>. Array
+        //long: 금융 화폐  
+         
+         //실수형(부동소수점)
+         //float 4byte
+         //double 8byte
+         //*** 실수 리터럴은 기본 타입 double ***
+         
+         
+         //실수는 그냥 double 타입 사용하는데 float 사용시는 명시적으로 접미사를 붙인다*
+         //float f = 3.14; //Type mismatch: cannot convert from double to float
+         float f= 3.14f;
+         float f2 =(float)3.14; //이런 경우 데이터 손시... 가져 올 수도 있다
+         
+         //현명한 개발자
+         //처음부터 타입을 크게 잡아서 사용
+         double d =3.14;
+         
+         //1. int 4byte, float 4byte 실수가 크다
+         //2. float과 double 중에서 정밀한 값의 표현 > double
+         
+         float data= 1.123456789f;
+         System.out.println("folat data : 1.123456789:" + data);//8에서 반올림 7이 8로 변경
+         //대략적으로 소수이라 7자리 (반올림)
+         
+         double data2 = 1.123456789123456789;
+         System.out.println("double data : 1.123456789123456789: " + data2);
+         
+         // Quiz 1)
         
+         double data3 =100;
+        //결과값은
+         System.out.println("data3 : " + data3);
+         
+         
+         //Quiz 2)
+         double data4 = 100;
+         int number = 100;
+         
+         //int result2 = data4 + number;// double = int > double
+         //해결방법은 
+         //int result2 = (int)(data4 + number) ; 1번 (큰것을 작은 것 강제적으로 손실)
+         //double result2 = data4 + number ;     2번  (0)
+         
+         
+         //Quiz 3)
+         int number2= 100;
+         //byte b2 = number2; // Type mismatch: cannot convert from int to byte
+         // 결과는(강제로 캐스팅(형변화) or  받는 쪽 크기 확장)
+         
+         // byte b2 =(byte)number2;
+         // int b2= number2;
+         
+         
+         //Todat Point
+         //1. 큰타입 + 작은 타입 이 연산 결과는 큰타입
+         //2. 타입간 변환 >> 변수가 가지는 값을 보지 말고 변수의 타입으로 판단하자
+         //3. 명시적(강제적) 형변환 데이터 손실을 고민하자
+         
+         int data5 = 100;
+         byte b3 = (byte)data5;//명시저 강제적 형변환
+         
+         byte b4 = 20;
+         //int data6= b4; //컴파일러가 내부적으로 암시적 형변환
+         int data6 = (int)b4;
+         
+         
+         
+         
+         
+         ////////////////////////////////////////////////////////////////////////////////
+      
+         
+         char cha =7000; //7000 은 정수리터럴의 범위를 벗어나지 않았다
+                         // The literal 값에 범위에 대한 오류는 아니다
         
        
         
