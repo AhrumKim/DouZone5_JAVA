@@ -2,8 +2,9 @@ package kr.or.kosa;
 
 //class== 설계도==타입
 public class Car {
-    private int door;   //캡슐화 (직접적으로 사용못하게 함)
+    private int door;   //캡슐화 (직접적으로 사용 못하게 함)
     private String carColor;
+    
 	public int getDoor() {
 		return door;
 	}
