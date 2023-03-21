@@ -69,4 +69,61 @@ public class Fclass {
 		
 	}
 	
+	public void m2(int i) {
+		System.out.println("일반함수: void, parameter(0)");
+		System.out.println("parameter 값을 활용: " +i);
+		
+	}
+	public int m3() {
+		//강제로 return  구현
+		return 10000;
+	}
+	public int m4(int data) {
+		return 100 + data;
+	}
+	//요기까지 가장 기본적인 함수 4가지
+	//확장
+	
+	//return type(0), parameter (0) 개수...
+	public int sum(int i, int j, int k) {
+		return i+j+k;
+	}
+	//함수의 접근자(수정자) 한정자
+	//int sum(); >>컴파일러가 >> default int sum();
+	//private int sum)()>> 객체입장에서 접근 불가 >> 같은클래스 안에서 접근 가능
+	// 클래스 내부에서 다른 함수를 도와주는 공통함수
+	
+	private int subSum(int i) {
+		return i+100;
+	}
+	//Fclass fclass = new Fclass();
+	//fclass.보이지 않아요
+	
+	public void callSubSum() {
+		int result = subSum(100); //private 함수
+		System.out.println("call result:" +result);
+		
+	}
+	
+	public int opSum(int data) {
+		//다양한 로직(제어문)
+		int result= subSum(data);
+		// 제어
+		if(result>0) {
+			return 1;
+		}else {
+			return -1;
+		}
+	}
+//Quiz 
+	/*
+	 함수를 생성하는데 
+	 정수타입의 parameter 2개를 받아서 둘중에 큰 값을 리턴하는 함수를 만드세요
+	 ex) max(10,5) return 10 이 반환되면 됩니다
+	 */
+	
+	public int max(int a, int b) {
+		return (a>b)? a : b;
+	}
 }
+
