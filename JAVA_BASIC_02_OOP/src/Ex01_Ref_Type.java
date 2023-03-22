@@ -11,7 +11,7 @@ class Test{  //default class Test
 public class Ex01_Ref_Type {
 
 	public static void main(String[] args) {
-		
+		  
 		Person person = new Person();
 		person.personPrint();
 		
