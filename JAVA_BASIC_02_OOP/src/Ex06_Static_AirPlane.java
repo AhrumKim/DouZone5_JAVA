@@ -1,25 +1,27 @@
 import kr.or.kosa.AirPlane;
 
-
 public class Ex06_Static_AirPlane {
+
 	public static void main(String[] args) {
+		/*
+		AirPlane air1 = new AirPlane();
+		air1.makeAirPlane(101, "대한항공");
 		
-		AirPlane a1 = new AirPlane();
-		a1.setName("a1");
-		a1.setAirNum(1);
-		a1.aircheck();
+		AirPlane air2 = new AirPlane();
+		air2.makeAirPlane(102, "아시아나");
+		air2.airPlaneTotalCount();
+		*/
 		
-		AirPlane a2 = new AirPlane();
-		a2.setName("a2");
-		a2.setAirNum(2);
-		a2.aircheck();
+		//AirPlane.airtotalcount   static private 접근불가 (간접)
+		//air1.airtotalcount   막았어요 
 		
+		AirPlane air1 = new AirPlane(101, "대한항공");
+		air1.airDisplay();
+		air1.airPlaneTotalCount();
 		
-		AirPlane a3 = new AirPlane();
-		a2.setName("a3");
-		a2.setAirNum(3);
-		a2.aircheck();
-		
-		System.out.println("만들어진 비행기 총 대수 : "+ AirPlane.airP_sum);
+		AirPlane air2 = new AirPlane(707, "아시아나");
+		air2.airDisplay();
+		air2.airPlaneTotalCount();
 	}
+
 }
