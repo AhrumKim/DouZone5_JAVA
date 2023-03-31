@@ -1,10 +1,10 @@
-package kr.or.kosa.dto;
+package kr.or.kosa;
 
-//한건의 데이터를 담을 수 있는 클래스
-//데이터베이스의 테이블과 1:1 매핑 하는 클래스 
-//create table emp( empno number , ename varchar2(30)); >> 1건의 
-//select * from emp where empno=7902
-//DTO , VO ,DOMAIN
+//한건의 데이터를 담을 수 이는 클래스
+//데이터베이스의 테이블과 1:1 매핑하는 클래스
+//create table emp(empno number, ename varchar2(30));>> 1건의
+//select*from emp where empno=7902
+//DTO, VO, DOMAIN
 public class Emp {
 	private int empno;
 	private String ename;
@@ -25,11 +25,10 @@ public class Emp {
 	}
 	public void setEname(String ename) {
 		this.ename = ename;
-	}
+	}	
 	
 	public void empInfoPrint() {
-		System.out.println(this.empno +  "-" + this.ename);
+		System.out.println(this.empno+"-"+this.ename);
 	}
-	
 	
 }

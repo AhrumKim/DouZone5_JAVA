@@ -2,51 +2,69 @@ package kr.or.kosa.dto;
 
 import java.util.Scanner;
 
-/*
- 로또 시스템 class 설계 하세요 ^^
- 목적 : 클래스의 구성 요소를 이해하고 활용 할 수 있다
- member field , constructor (초기화) , method 활용
- 접근자 한정자의 사용 , ....
- 기능을 함수 단위로 분리 할 수 있다 ^^
- 함수의 return type 과 parameter 를 활용할 수 있다
- 
- 결국 Ex07_Array_Lotto_Quiz main함수 있는 내용을 별도의 기능으로 구현하세요
- 
- 그러면
- Ex08_Lotto 의 main 함수안에서
- 
- Lotto lotto = new Lotto();
- lotto.start(); 
- 이런식으로 실행하면
- 메뉴가 나오고  .... 선택시 번호 추출하고 ..... 선택시 종료 되는 기능을 구현하시면 됩니다
- 
- 
-*/
 public class Lotto {
-	//아래와 같이 ....
 	private Scanner scanner;
+	private int[] numbers = new int[6];	
+
 	public Lotto() {
-		scanner = new Scanner(System.in);
+		scanner= new Scanner(System.in);
 	}
-	
-	private String showMenu() {
-		System.out.println("***************************");
-		System.out.println("**1. 당첨 예상 번호 추출하기**");
-		System.out.println("**2. 프로그램 종료 ^^! ^^! ^^**");
-		System.out.println("***************************");
-		System.out.println("원하는 메뉴 번호를 입력하세요 :");
-		String selectnum = scanner.nextLine();
-		return selectnum;
+	private String Menu() {
+		
+		System.out.println("=====================================");
+		System.out.println("==========1.로또 번호 추첨하기=============");
+		System.out.println("===========2. 종료하기=================");
+		System.out.println("========로또 번호를 추첨하시겠습니까?========");
+		System.out.println("1.YES  2. NO (원하는 메뉴 번호를 입력하세요^_^");
+		 int num = scanner.nextInt();
+		 
+		 
 	}
-	
-	//여러가지 기능을 가지는 함수를 생성 활용하세요
-	// 기능 >> method >> 함수 하나당 기능 하나
-	// public >> 참조변수
-	// private >> 내부 사용 (공통)
-	// 실번호 추출해 주세요
-	// 중복값 나오면 안되요
-	// 낮은 순으로 정렬해 주세요
-	// 화면에 출력해 주세요
-	// 메뉴 기능을 만들어 주세요
-	
+		
+		
+		private void Select_Menu() {		
+						
+		do {
+		// 1. 1~45 까지의 난수를 발생시켜서 6개의 정수값을 배열에 담기
+		for (int i = 0; i < numbers.length; i++) {
+			//Math.ramdom()의 값이 0과 1사이이기 때문에 45를 곱하면 0~44 사이가 나오게 됩니다.
+			//0~45 의 전체 범위에 +1을 하게 되면 범위가 1~45로 변
+			int number = (int) (Math.random() * 45) + 1;
+			// 2. 배열에 담긴 6개의 배열값은 중복값이 나오면 안됨 (중복값 검증)
+			// 중복값 검증을 for문으로 수행
+			boolean checking = false;
+			//배열의 처음부터 값을 설정한 곳 까지 같은 값을 가지는지 비교
+			for (int j = 0; j < i; j++) {]					
+					
+			}
+			//같은 값을 가진다면 반복문 실행 전으로 돌아가 난수 재생성 및 재검증
+			if (checking) {
+				i--;
+			} else {	//같은 값을 가지지 않는다면 난수값 설정
+				numbers[i] = number;
+			}
+		}
+		
+		// 3. 배열에 있는 6개의 값은 낮은 순으로 정렬 시키기 (정렬 : 자리바꿈(swap))
+		for (int i = 0; i < numbers.length - 1; i++) {
+			for (int j = i + 1; j < numbers.length; j++) {
+				if (numbers[i] > numbers[j]) {
+					int temp = numbers[i];
+					numbers[i] = numbers[j];
+					numbers[j] = temp;
+				}
+			}
+		}
+
+		// 4. 결과를 담고있는 배열을 출력하기
+		for (int i = 0; i < numbers.length; i++) {
+			System.out.print(numbers[i] + " ");
+		}
+	}while(num=1);
+		
+}
+		public void start() {
+			Select_Menu();
+			
+		}
 }
