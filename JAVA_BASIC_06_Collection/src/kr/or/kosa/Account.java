@@ -3,34 +3,67 @@ package kr.or.kosa;
 import java.util.ArrayList;
 
 public class Account {
-	String account_number; //계좌번호
-	String account_name; //소유자명
-	int balance; //잔고
-	String[] Transaction; // 거래 내역
+    private String accountNo;
+    private String name;
+    private long balance;
+    private int num;
 
-	
-	Account account= new Account("123-456-78910,"김유신");
-	System.out.println(emp.toString());
-	Account[]emplist = {new Account(100,"김씨", "영업"), new Account(200,"박씨","IT")};
-	for(account e : emplist) {
-		System.out.println(e.toString());
-	}
-	
-	//3. ArrayList 사용해서
-	ArrayList elist = new ArrayList();
-	elist.add(new Emp(100,"김씨","영업"));
+    private final ArrayList<Transaction> transactions;
 
-	
-	//계좌번호 및 소유자명 
-	Account(String account_number, String account_name,int balance){
-		this.account_number= account_number;
-		this.account_name= account_name;
-		this.balance= balance;
-		
-	}
-}
-class account1 extends Account{
-	account1(){
-		super( );
-	}
+    public Account(String accountNo, String name) {
+        this.transactions = new ArrayList<>();
+        this.accountNo = accountNo;
+        this.name = name;
+        this.balance = 0;
+        this.num = 0;
+    }
+
+    public void deposit(long amount) {
+        if(amount <= 0){
+            System.out.println("입력오류");
+        }else{
+            this.balance += amount;
+            transactions.add(new Transaction("deposit", amount, balance));
+        }
+    }
+
+    public void withdraw(long amount) {
+        if(amount <= 0){
+            System.out.println("입력오류");
+        }else{
+            if(this.balance < amount){
+                System.out.println("잔액부족");
+            }else{
+                this.balance -= amount;
+                transactions.add(new Transaction("withdraw", amount, balance));
+            }
+        }
+    }
+
+    public long getBalance() {
+        return this.balance;
+    }
+
+    public ArrayList<Transaction> getTransaction() {
+        return this.transactions;
+    }
+
+    public String getAccountNo() {
+        return accountNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + "계좌번호:" + this.accountNo +
+                        ", 소유자명:" + this.name +
+                        ", 잔액:" + this.balance + "]";
+    }
 }
