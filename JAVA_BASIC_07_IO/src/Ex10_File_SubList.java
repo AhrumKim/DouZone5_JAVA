@@ -53,8 +53,7 @@ public class Ex10_File_SubList {
 	
 	public static void main(String[] args) {
 		if(args.length != 1) {
-			System.out.println("사용법 : java [실행할 파일명] [경로명]");
-			System.out.println("예시  : java Ex10_File_SubList D:\\Temp");
+			System.out.println("사용법 : java [실행할  _File_SubList D:\\Temp");
 			System.exit(0);
 		}
 
